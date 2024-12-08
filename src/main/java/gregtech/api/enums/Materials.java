@@ -1968,10 +1968,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         CosmicNeutronium.mChemicalFormula = "SpNt";
         Aluminiumhydroxide.mChemicalFormula = "Al\u0028OH\u0029\u2083";
         MaterialsKevlar.LiquidCrystalKevlar.mChemicalFormula = "[-CO-C\u2086H\u2084-CO-NH-C\u2086H\u2084-NH-]n";
-        MaterialsKevlar.RhodiumChloride.mChemicalFormula = "RhCl\u2083";
-        MaterialsKevlar.OrganorhodiumCatalyst.mChemicalFormula = "RhHCO(P(C\u2086H\u2085)\u2083)\u2083";
-        MaterialsKevlar.CobaltIINitrate.mChemicalFormula = "Co(NO\u2083)\u2082";
-        MaterialsKevlar.CobaltIIHydroxide.mChemicalFormula = "Co(OH)\u2082";
         SiliconSG.mChemicalFormula = "Si*";
         NetherQuartz.mChemicalFormula = "SiO\u2082";
         Quartzite.mChemicalFormula = "SiO\u2082";

@@ -129,37 +129,6 @@ public class DistilleryRecipes implements Runnable {
             .eut(16)
             .addTo(distilleryRecipes);
 
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(6))
-            .fluidInputs(Materials.WoodTar.getFluid(200))
-            .fluidOutputs(MaterialsKevlar.IIIDimethylbenzene.getFluid(30))
-            .duration(16 * TICKS)
-            .eut(64)
-            .addTo(distilleryRecipes);
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(6))
-            .fluidInputs(Materials.CharcoalByproducts.getGas(200))
-            .fluidOutputs(MaterialsKevlar.IIIDimethylbenzene.getFluid(20))
-            .duration(5 * SECONDS)
-            .eut(64)
-            .addTo(distilleryRecipes);
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(7))
-            .fluidInputs(Materials.WoodTar.getFluid(200))
-            .fluidOutputs(MaterialsKevlar.IVDimethylbenzene.getFluid(30))
-            .duration(16 * TICKS)
-            .eut(64)
-            .addTo(distilleryRecipes);
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(7))
-            .fluidInputs(Materials.CharcoalByproducts.getGas(200))
-            .fluidOutputs(MaterialsKevlar.IVDimethylbenzene.getFluid(20))
-            .duration(5 * SECONDS)
-            .eut(64)
-            .addTo(distilleryRecipes);
         // (NaCl·H2O) = NaCl + H2O
 
         GTValues.RA.stdBuilder()
@@ -409,96 +378,6 @@ public class DistilleryRecipes implements Runnable {
             .eut(TierEU.RECIPE_MV)
             .addTo(distillationTowerRecipes);
         // C15H10N2O2(5HCl) = C15H10N2O2 + 5HCl
-
-        GTValues.RA.stdBuilder()
-            .itemOutputs(GTOreDictUnificator.get(OrePrefixes.dust, MaterialsKevlar.DiphenylmethaneDiisocyanate, 29L))
-            .fluidInputs(MaterialsKevlar.DiphenylmethaneDiisocyanateMixture.getFluid(1000L))
-            .fluidOutputs(Materials.HydrochloricAcid.getFluid(5000L))
-            .duration(2 * MINUTES + 5 * SECONDS)
-            .eut(TierEU.RECIPE_EV)
-            .addTo(distillationTowerRecipes);
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(2))
-            .itemOutputs(Materials.Charcoal.getDustSmall(1))
-            .fluidInputs(Materials.CharcoalByproducts.getGas(1000))
-            .fluidOutputs(
-                Materials.WoodTar.getFluid(250),
-                Materials.WoodVinegar.getFluid(400),
-                Materials.WoodGas.getGas(250),
-                MaterialsKevlar.IIIDimethylbenzene.getFluid(100))
-            .duration(2 * SECONDS)
-            .eut(256)
-            .addTo(distillationTowerRecipes);
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(2))
-            .fluidInputs(Materials.WoodTar.getFluid(1000))
-            .fluidOutputs(
-                Materials.Creosote.getFluid(250),
-                Materials.Phenol.getFluid(100),
-                Materials.Benzene.getFluid(400),
-                Materials.Toluene.getFluid(100),
-                MaterialsKevlar.IIIDimethylbenzene.getFluid(150))
-            .duration(2 * SECONDS)
-            .eut(256)
-            .addTo(distillationTowerRecipes);
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(3))
-            .fluidInputs(Materials.WoodTar.getFluid(1000))
-            .fluidOutputs(
-                Materials.Creosote.getFluid(250),
-                Materials.Phenol.getFluid(100),
-                Materials.Benzene.getFluid(400),
-                Materials.Toluene.getFluid(100),
-                MaterialsKevlar.IVDimethylbenzene.getFluid(150))
-            .duration(2 * SECONDS)
-            .eut(256)
-            .addTo(distillationTowerRecipes);
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(3))
-            .itemOutputs(Materials.Charcoal.getDustSmall(1))
-            .fluidInputs(Materials.CharcoalByproducts.getGas(1000))
-            .fluidOutputs(
-                Materials.WoodTar.getFluid(250),
-                Materials.WoodVinegar.getFluid(400),
-                Materials.WoodGas.getGas(250),
-                MaterialsKevlar.IVDimethylbenzene.getFluid(100))
-            .duration(2 * SECONDS)
-            .eut(256)
-            .addTo(distillationTowerRecipes);
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(4))
-            .itemOutputs(Materials.Charcoal.getDustSmall(1))
-            .fluidInputs(Materials.CharcoalByproducts.getGas(1000))
-            .fluidOutputs(
-                Materials.WoodTar.getFluid(250),
-                Materials.WoodVinegar.getFluid(400),
-                Materials.WoodGas.getGas(250),
-                Materials.Dimethylbenzene.getFluid(20),
-                MaterialsKevlar.IIIDimethylbenzene.getFluid(60),
-                MaterialsKevlar.IVDimethylbenzene.getFluid(20))
-            .duration(2 * SECONDS)
-            .eut(256)
-            .addTo(distillationTowerRecipes);
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(4))
-            .fluidInputs(Materials.WoodTar.getFluid(1000))
-            .fluidOutputs(
-                Materials.Creosote.getFluid(250),
-                Materials.Phenol.getFluid(100),
-                Materials.Benzene.getFluid(400),
-                Materials.Toluene.getFluid(100),
-                Materials.Dimethylbenzene.getFluid(30),
-                MaterialsKevlar.IIIDimethylbenzene.getFluid(90),
-                MaterialsKevlar.IVDimethylbenzene.getFluid(30))
-            .duration(2 * SECONDS)
-            .eut(256)
-            .addTo(distillationTowerRecipes);
 
         GTValues.RA.stdBuilder()
             .itemInputs(GTUtility.getIntegratedCircuit(9))
