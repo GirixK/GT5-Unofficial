@@ -1957,7 +1957,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         InfinityCatalyst.mChemicalFormula = "If";
         CosmicNeutronium.mChemicalFormula = "SpNt";
         Aluminiumhydroxide.mChemicalFormula = "Al\u0028OH\u0029\u2083";
-        MaterialsKevlar.LiquidCrystalKevlar.mChemicalFormula = "[-CO-C\u2086H\u2084-CO-NH-C\u2086H\u2084-NH-]n";
         SiliconSG.mChemicalFormula = "Si*";
         NetherQuartz.mChemicalFormula = "SiO\u2082";
         Quartzite.mChemicalFormula = "SiO\u2082";
@@ -2015,6 +2014,12 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             + "If*";
         MaterialsUEVplus.HotProtoHalkonite.mChemicalFormula = MaterialsUEVplus.MoltenProtoHalkoniteBase.mChemicalFormula;
         MaterialsUEVplus.ProtoHalkonite.mChemicalFormula = MaterialsUEVplus.MoltenProtoHalkoniteBase.mChemicalFormula;
+        MaterialsKevlar.LiquidCrystalKevlar.mChemicalFormula = "((C\u2086H\u2084)\u2082(CO)\u2082(NH)\u2082)";
+        MaterialsKevlar.Hexachloroxylene.mChemicalFormula = "(C\u2086H\u2084(CCl\u2083)\u2082)";
+        MaterialsKevlar.ParaPhenylenediamine.mChemicalFormula = "C\u2086H\u2084(NH\u2082)\u2082";
+        MaterialsKevlar.IVNitroaniline.mChemicalFormula = "C\u2086H\u2084(NH\u2082)(NO\u2082)";
+        MaterialsKevlar.TerephthaloylChloride.mChemicalFormula = "C\u2086H\u2084(COCl)\u2082";
+        MaterialsKevlar.TerephthalicAcid.mChemicalFormula = "C\u2086H\u2084(CO\u2082H)\u2082";
     }
 
     private static void initSubTags() {
