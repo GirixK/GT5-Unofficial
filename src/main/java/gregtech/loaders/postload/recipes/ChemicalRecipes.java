@@ -10,10 +10,14 @@ import static gregtech.api.util.GTModHandler.getModItem;
 import static gregtech.api.util.GTRecipeBuilder.MINUTES;
 import static gregtech.api.util.GTRecipeBuilder.SECONDS;
 import static gregtech.api.util.GTRecipeBuilder.TICKS;
+import static gregtech.api.util.GTRecipeConstants.CHEMPLANT_CASING_TIER;
 import static gregtech.api.util.GTRecipeConstants.UniversalChemical;
+import static gtPlusPlus.api.recipe.GTPPRecipeMaps.chemicalPlantRecipes;
 import static gtPlusPlus.core.material.MaterialMisc.SODIUM_NITRATE;
 import static net.minecraftforge.fluids.FluidRegistry.getFluidStack;
 
+import gtPlusPlus.core.item.chemistry.GenericChem;
+import gtPlusPlus.core.util.minecraft.ItemUtils;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -4959,46 +4963,6 @@ public class ChemicalRecipes implements Runnable {
             .eut(TierEU.RECIPE_IV)
             .addTo(multiblockChemicalReactorRecipes);
 
-        // C6H7N + HNO3 =H2SO4,C4H6O3= C6H6N2O2 + H2O
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(2))
-            .fluidInputs(
-                new FluidStack(FluidRegistry.getFluid("aniline"), 1000),
-                new FluidStack(FluidRegistry.getFluid("molten.aceticanhydride"), 100),
-                Materials.NitrationMixture.getFluid(2000))
-            .fluidOutputs(MaterialsKevlar.IVNitroaniline.getFluid(1000), Materials.DilutedSulfuricAcid.getFluid(1000))
-            .duration(15 * SECONDS)
-            .eut(TierEU.RECIPE_EV)
-            .addTo(multiblockChemicalReactorRecipes);
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(9))
-            .fluidInputs(
-                new FluidStack(FluidRegistry.getFluid("aniline"), 9000),
-                new FluidStack(FluidRegistry.getFluid("molten.aceticanhydride"), 900),
-                Materials.NitrationMixture.getFluid(18000))
-            .fluidOutputs(MaterialsKevlar.IVNitroaniline.getFluid(9000), Materials.DilutedSulfuricAcid.getFluid(9000))
-            .duration(1 * MINUTES + 40 * SECONDS)
-            .eut(TierEU.RECIPE_EV)
-            .addTo(multiblockChemicalReactorRecipes);
-
-        // C6H6N2O2 + 6H =Pd,NO2= C6H8N2 + 2H2O
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(
-                GTUtility.getIntegratedCircuit(1),
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Palladium, 1))
-            .itemOutputs(GTOreDictUnificator.get(OrePrefixes.dust, MaterialsKevlar.ParaPhenylenediamine, 16))
-            .fluidInputs(
-                Materials.NitrogenDioxide.getGas(100),
-                Materials.Hydrogen.getGas(6000),
-                MaterialsKevlar.IVNitroaniline.getFluid(1000))
-            .fluidOutputs(Materials.Water.getFluid(2000))
-            .duration(20 * SECONDS)
-            .eut(TierEU.RECIPE_UV)
-            .addTo(multiblockChemicalReactorRecipes);
-
         // Na2B4O7(H2O)10 + 2HCl = 2NaCl + 4H3BO3 + 5H2O
 
         GTValues.RA.stdBuilder()
@@ -5011,5 +4975,88 @@ public class ChemicalRecipes implements Runnable {
             .duration(40 * SECONDS)
             .eut(TierEU.RECIPE_HV)
             .addTo(multiblockChemicalReactorRecipes);
+
+        // LCKevlar
+        GTValues.RA.stdBuilder()
+            .itemInputs(GTUtility.getIntegratedCircuit(1))
+            .fluidInputs(
+                MaterialsKevlar.ParaPhenylenediamine.getFluid(1000),
+                MaterialsKevlar.TerephthaloylChloride.getFluid(1000))
+            .fluidOutputs(
+                MaterialsKevlar.LiquidCrystalKevlar.getFluid(1296),
+                Materials.HydrochloricAcid.getFluid(2000))
+            .duration(10 * SECONDS)
+            .eut(TierEU.RECIPE_UV)
+            .addTo(multiblockChemicalReactorRecipes);
+
+        // Phenylenediamine
+        GTValues.RA.stdBuilder()
+            .itemInputs(
+                ItemUtils.getSimpleStack(GenericChem.mPinkCatalyst, 0),
+                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Iron, 1))
+            .fluidInputs(
+                Materials.Hydrogen.getGas(6000),
+                MaterialsKevlar.IVNitroaniline.getFluid(1000))
+            .fluidOutputs(
+                MaterialsKevlar.ParaPhenylenediamine.getFluid(1000),
+                Materials.Water.getFluid(2000))
+            .duration(5 * SECONDS)
+            .eut(TierEU.RECIPE_LuV)
+            .metadata(CHEMPLANT_CASING_TIER, 1)
+            .addTo(chemicalPlantRecipes);
+
+        // Nitroaniline
+        GTValues.RA.stdBuilder()
+            .itemInputs(GTUtility.getIntegratedCircuit(1))
+            .fluidInputs(
+                Materials.Nitrochlorobenzene.getFluid(1000),
+                Materials.Ammonia.getGas(2000))
+            .fluidOutputs(
+                MaterialsKevlar.IVNitroaniline.getFluid(1000),
+                WerkstoffLoader.AmmoniumChloride.getFluidOrGas(1000))
+            .duration(15 * SECONDS)
+            .eut(TierEU.RECIPE_EV)
+            .addTo(multiblockChemicalReactorRecipes);
+
+        // Terephthaloyl Chloride
+        GTValues.RA.stdBuilder()
+            .itemInputs(ItemUtils.getSimpleStack(GenericChem.mRedCatalyst, 0))
+            .fluidInputs(
+                MaterialsKevlar.Hexachloroxylene.getFluid(1000),
+                MaterialsKevlar.TerephthalicAcid.getFluid(1000))
+            .fluidOutputs(
+                MaterialsKevlar.TerephthaloylChloride.getFluid(2000),
+                Materials.HydrochloricAcid.getFluid(2000))
+            .duration(5 * SECONDS)
+            .eut(TierEU.RECIPE_LuV)
+            .metadata(CHEMPLANT_CASING_TIER, 1)
+            .addTo(chemicalPlantRecipes);
+
+        // Hexachloroxylene
+        GTValues.RA.stdBuilder()
+            .itemInputs(GTUtility.getIntegratedCircuit(1))
+            .fluidInputs(
+                Materials.Chlorine.getGas(12000),
+                Materials.Dimethylbenzene.getFluid(1000))
+            .fluidOutputs(
+                MaterialsKevlar.Hexachloroxylene.getFluid(1000),
+                Materials.HydrochloricAcid.getFluid(6000))
+            .duration(5 * SECONDS)
+            .eut(TierEU.RECIPE_LV)
+            .addTo(multiblockChemicalReactorRecipes);
+
+        // Terephthalic Acid
+        GTValues.RA.stdBuilder()
+            .itemInputs(ItemUtils.getSimpleStack(GenericChem.mBlueCatalyst, 0))
+            .fluidInputs(
+                Materials.Dimethylbenzene.getFluid(1000),
+                Materials.Oxygen.getGas(6000))
+            .fluidOutputs(
+                MaterialsKevlar.TerephthalicAcid.getFluid(1000),
+                Materials.Water.getFluid(2000))
+            .duration(5 * SECONDS)
+            .eut(TierEU.RECIPE_LV)
+            .metadata(CHEMPLANT_CASING_TIER, 1)
+            .addTo(chemicalPlantRecipes);
     }
 }
