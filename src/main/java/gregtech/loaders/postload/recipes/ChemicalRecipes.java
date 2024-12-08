@@ -1069,46 +1069,10 @@ public class ChemicalRecipes implements Runnable {
 
 
 
-        // CoO + 2C2H4O2 = CoC4H6O4 + 2H
 
 
 
-        GTValues.RA.stdBuilder()
-            .itemInputs(Materials.Phosphorus.getDust(1), GTUtility.getIntegratedCircuit(1))
-            .fluidInputs(Materials.Chlorine.getGas(3000))
-            .fluidOutputs(MaterialsKevlar.PhosphorusTrichloride.getFluid(1000))
-            .duration(10 * SECONDS)
-            .eut(TierEU.RECIPE_MV)
-            .addTo(UniversalChemical);
 
-        GTValues.RA.stdBuilder()
-            .itemInputs(Materials.Phosphorus.getDust(9), GTUtility.getIntegratedCircuit(9))
-            .fluidInputs(Materials.Chlorine.getGas(27000))
-            .fluidOutputs(MaterialsKevlar.PhosphorusTrichloride.getFluid(9000))
-            .duration(1 * MINUTES + 15 * SECONDS)
-            .eut(TierEU.RECIPE_MV)
-            .addTo(UniversalChemical);
-
-        // Na + H = NaH
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(Materials.Sodium.getDust(1), GTUtility.getIntegratedCircuit(2))
-            .itemOutputs(MaterialsKevlar.SodiumHydride.getDust(2))
-            .fluidInputs(Materials.Hydrogen.getGas(1000))
-            .duration(10 * SECONDS)
-            .eut(TierEU.RECIPE_MV)
-            .addTo(UniversalChemical);
-
-        // CH3ONa + H2O = CH4O + NaOH
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(MaterialsKevlar.SodiumMethoxide.getDust(6), GTUtility.getIntegratedCircuit(1))
-            .itemOutputs(Materials.SodiumHydroxide.getDust(3))
-            .fluidInputs(Materials.Water.getFluid(1000))
-            .fluidOutputs(Materials.Methanol.getFluid(1000))
-            .duration(10 * SECONDS)
-            .eut(TierEU.RECIPE_HV)
-            .addTo(UniversalChemical);
 
         // K + HNO3 = KNO3 + H (not real, but gameplay
 
@@ -3718,14 +3682,6 @@ public class ChemicalRecipes implements Runnable {
         // P + 3Cl = PCl3
 
         GTValues.RA.stdBuilder()
-            .itemInputs(Materials.Phosphorus.getDust(1), Materials.Chlorine.getCells(3))
-            .itemOutputs(ItemList.Cell_Empty.get(3))
-            .fluidOutputs(MaterialsKevlar.PhosphorusTrichloride.getFluid(1000))
-            .duration(10 * SECONDS)
-            .eut(TierEU.RECIPE_MV)
-            .addTo(chemicalReactorRecipes);
-
-        GTValues.RA.stdBuilder()
             .itemInputs(
                 GTOreDictUnificator.get(OrePrefixes.dust, Materials.Silicon, 1),
                 GTOreDictUnificator.get(OrePrefixes.cell, Materials.Chlorine, 4))
@@ -4306,18 +4262,6 @@ public class ChemicalRecipes implements Runnable {
             .eut(TierEU.RECIPE_HV)
             .addTo(multiblockChemicalReactorRecipes);
 
-
-        // PCl3 + 3C6H5Cl + 6Na = 6NaCl + C18H15P
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(
-                GTUtility.getIntegratedCircuit(1),
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Sodium, 6))
-            .itemOutputs(MaterialsKevlar.Triphenylphosphene.getDust(34), Materials.Salt.getDust(12))
-            .fluidInputs(MaterialsKevlar.PhosphorusTrichloride.getFluid(1000), Materials.Chlorobenzene.getFluid(3000))
-            .duration(20 * SECONDS)
-            .eut(TierEU.RECIPE_EV)
-            .addTo(multiblockChemicalReactorRecipes);
 
         // 2CH3COOH = CH3COCH3 + CO2 + H
 
@@ -5099,56 +5043,6 @@ public class ChemicalRecipes implements Runnable {
             .fluidOutputs(new FluidStack(FluidRegistry.getFluid("boricacid"), 4000), Materials.Water.getFluid(5000))
             .duration(40 * SECONDS)
             .eut(TierEU.RECIPE_HV)
-            .addTo(multiblockChemicalReactorRecipes);
-
-        // H3BO3 + 3CH4O =H2SO4= C3H9BO3 + 3H2O
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(1))
-            .fluidInputs(
-                Materials.Methanol.getFluid(3000),
-                new FluidStack(FluidRegistry.getFluid("boricacid"), 1000),
-                Materials.SulfuricAcid.getFluid(6000))
-            .fluidOutputs(Materials.DilutedSulfuricAcid.getFluid(6000), MaterialsKevlar.TrimethylBorate.getFluid(1000))
-            .duration(30 * SECONDS)
-            .eut(TierEU.RECIPE_EV)
-            .addTo(multiblockChemicalReactorRecipes);
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(9))
-            .fluidInputs(
-                Materials.Methanol.getFluid(27000),
-                new FluidStack(FluidRegistry.getFluid("boricacid"), 9000),
-                Materials.SulfuricAcid.getFluid(54000))
-            .fluidOutputs(Materials.DilutedSulfuricAcid.getFluid(54000), MaterialsKevlar.TrimethylBorate.getFluid(9000))
-            .duration(3 * MINUTES + 45 * SECONDS)
-            .eut(TierEU.RECIPE_EV)
-            .addTo(multiblockChemicalReactorRecipes);
-
-        // 2NaOH + N2H4 =Mn= 2N + 2H2O + 2NaH
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(
-                GTUtility.getIntegratedCircuit(9),
-                Materials.SodiumHydroxide.getDust(6),
-                Materials.Manganese.getDustTiny(1))
-            .itemOutputs(MaterialsKevlar.SodiumHydride.getDust(4))
-            .fluidInputs(new FluidStack(FluidRegistry.getFluid("fluid.hydrazine"), 1000))
-            .fluidOutputs(Materials.Nitrogen.getGas(2000), Materials.Water.getFluid(2000))
-            .duration(10 * TICKS)
-            .eut(TierEU.RECIPE_EV)
-            .addTo(multiblockChemicalReactorRecipes);
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(
-                GTUtility.getIntegratedCircuit(18),
-                Materials.SodiumHydroxide.getDust(54),
-                Materials.Manganese.getDust(1))
-            .itemOutputs(MaterialsKevlar.SodiumHydride.getDust(36))
-            .fluidInputs(new FluidStack(FluidRegistry.getFluid("fluid.hydrazine"), 9000))
-            .fluidOutputs(Materials.Nitrogen.getGas(18000), Materials.Water.getFluid(18000))
-            .duration(3 * SECONDS + 10 * TICKS)
-            .eut(TierEU.RECIPE_EV)
             .addTo(multiblockChemicalReactorRecipes);
     }
 }

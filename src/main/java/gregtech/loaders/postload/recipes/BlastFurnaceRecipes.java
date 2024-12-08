@@ -534,16 +534,6 @@ public class BlastFurnaceRecipes implements Runnable {
             .metadata(COIL_HEAT, 2573)
             .addTo(blastFurnaceRecipes);
 
-        // Ni + 3Al = NiAl3
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(Materials.Nickel.getDust(1), Materials.Aluminium.getDust(3))
-            .itemOutputs(MaterialsKevlar.NickelAluminide.getIngots(4))
-            .duration(45 * SECONDS)
-            .eut((int) TierEU.RECIPE_HV)
-            .metadata(COIL_HEAT, 1688)
-            .addTo(blastFurnaceRecipes);
-
         ItemStack[] tSiliconDioxide = new ItemStack[] { Materials.SiliconDioxide.getDust(3),
             Materials.NetherQuartz.getDust(3), Materials.CertusQuartz.getDust(3), Materials.Quartzite.getDust(6) };
 
@@ -638,19 +628,6 @@ public class BlastFurnaceRecipes implements Runnable {
             .duration(3 * MINUTES)
             .eut(TierEU.RECIPE_UIV)
             .metadata(COIL_HEAT, 11701)
-            .addTo(blastFurnaceRecipes);
-
-        // Rh + 3Cl = RhCl3
-
-        GTValues.RA.stdBuilder()
-            .itemInputs(
-                new ItemStack(WerkstoffLoader.items.get(OrePrefixes.dust), 1, 78),
-                GTUtility.getIntegratedCircuit(2))
-            .itemOutputs(MaterialsKevlar.RhodiumChloride.getDust(4))
-            .fluidInputs(Materials.Chlorine.getGas(3000))
-            .duration(30 * SECONDS)
-            .eut(TierEU.RECIPE_HV)
-            .metadata(COIL_HEAT, 573)
             .addTo(blastFurnaceRecipes);
 
         GTValues.RA.stdBuilder()
