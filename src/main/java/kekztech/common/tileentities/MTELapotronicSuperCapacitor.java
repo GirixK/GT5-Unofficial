@@ -845,6 +845,7 @@ public class MTELapotronicSuperCapacitor extends MTEEnhancedMultiBlockBase<MTELa
      * @return EU amount
      */
     private long getPowerToDraw(long hatchWatts) {
+        if (stored.compareTo(capacity) >= 0) return 0;
         final BigInteger remcapActual = capacity.subtract(stored);
         final BigInteger recampLimited = (MAX_LONG.compareTo(remcapActual) > 0) ? remcapActual : MAX_LONG;
         return min(hatchWatts, recampLimited.longValue());
@@ -1227,11 +1228,6 @@ public class MTELapotronicSuperCapacitor extends MTEEnhancedMultiBlockBase<MTELa
     @Override
     public int getMaxEfficiency(ItemStack stack) {
         return 10000;
-    }
-
-    @Override
-    public int getPollutionPerTick(ItemStack stack) {
-        return 0;
     }
 
     @Override
