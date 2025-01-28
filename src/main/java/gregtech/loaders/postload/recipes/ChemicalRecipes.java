@@ -4957,17 +4957,6 @@ public class ChemicalRecipes implements Runnable {
             .eut(TierEU.RECIPE_HV)
             .addTo(multiblockChemicalReactorRecipes);
 
-        GTValues.RA.stdBuilder()
-            .itemInputs(GTUtility.getIntegratedCircuit(24))
-            .fluidInputs(
-                Materials.Naquadria.getMolten(4608),
-                Materials.ElectrumFlux.getMolten(4608),
-                Materials.Radon.getGas(16000))
-            .fluidOutputs(Materials.EnrichedNaquadria.getFluid(9216))
-            .duration(30 * SECONDS)
-            .eut(TierEU.RECIPE_UV)
-            .addTo(multiblockChemicalReactorRecipes);
-
         // C6H5NO2 + 6H =Pd= C6H7N + 2H2O
 
         GTValues.RA.stdBuilder()
