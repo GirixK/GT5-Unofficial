@@ -190,8 +190,18 @@ public class MTELargeRocketEngine extends GTPPMultiBlockBase<MTELargeRocketEngin
     }
 
     @Override
+    protected IIconContainer getActiveGlowOverlay() {
+        return TexturesGtBlock.oMCALargeRocketEngineActiveGlow;
+    }
+
+    @Override
     protected IIconContainer getInactiveOverlay() {
         return TexturesGtBlock.oMCALargeRocketEngine;
+    }
+
+    @Override
+    protected IIconContainer getInactiveGlowOverlay() {
+        return TexturesGtBlock.oMCALargeRocketEngineGlow;
     }
 
     @Override
@@ -511,10 +521,5 @@ public class MTELargeRocketEngine extends GTPPMultiBlockBase<MTELargeRocketEngin
     @Override
     public int getMaxParallelRecipes() {
         return 1;
-    }
-
-    @Override
-    public boolean doesBindPlayerInventory() {
-        return false;
     }
 }
