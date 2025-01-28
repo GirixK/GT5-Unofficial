@@ -4957,6 +4957,19 @@ public class ChemicalRecipes implements Runnable {
             .eut(TierEU.RECIPE_HV)
             .addTo(multiblockChemicalReactorRecipes);
 
+        // CH2O + 2C6H7N + HCl = C13H14N2(HCl) + H2O
+
+        GTValues.RA.stdBuilder()
+            .itemInputs(GTUtility.getIntegratedCircuit(1))
+            .fluidInputs(
+                new FluidStack(FluidRegistry.getFluid("fluid.formaldehyde"), 1000),
+                new FluidStack(FluidRegistry.getFluid("aniline"), 2000),
+                Materials.HydrochloricAcid.getFluid(1000))
+            .fluidOutputs(MaterialsKevlar.DiaminodiphenylmethanMixture.getFluid(1000))
+            .duration(60 * SECONDS)
+            .eut(TierEU.RECIPE_EV)
+            .addTo(multiblockChemicalReactorRecipes);
+
         // C6H5NO2 + 6H =Pd= C6H7N + 2H2O
 
         GTValues.RA.stdBuilder()
