@@ -929,6 +929,7 @@ import static gregtech.api.util.GTRecipeBuilder.SECONDS;
 import static gregtech.api.util.GTRecipeBuilder.TICKS;
 import static gregtech.api.util.GTUtility.calculateRecipeEU;
 
+import gregtech.common.tileentities.machines.multi.*;
 import net.minecraft.util.EnumChatFormatting;
 
 import gregtech.api.GregTechAPI;
@@ -12368,6 +12369,11 @@ public class LoaderMetaTileEntities implements Runnable { // TODO CHECK CIRCUIT 
                 "basicgenerator.plasmagenerator.tier.09",
                 "Ultimate Pocket Sun",
                 8).getStackForm(1L));
+        ItemList.PolymerLayeringMachine.set(
+            new MTEPolymerLayeringMachine(
+                PolymerLayeringMachineController.ID,
+                "multimachine.polymerlayeringmachine",
+                "Composite Polymer Layering and Curing Machine").getStackForm(1L));
     }
 
     private static void registerNameRemover() {

@@ -2608,6 +2608,7 @@ public enum ItemList implements IItemContainer {
     Machine_Multi_AirFilterT3,
 
     // semicolon after the comment to reduce merge conflicts
+    PolymerLayeringMachine,
     ;
 
     public static final ItemList[] DYE_ONLY_ITEMS = { Color_00, Color_01, Color_02, Color_03, Color_04, Color_05,

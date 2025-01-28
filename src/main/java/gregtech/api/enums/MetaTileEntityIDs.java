@@ -1959,7 +1959,8 @@ public enum MetaTileEntityIDs {
     NeutronAcceleratorUHV(32761),
     NeutronAcceleratorUEV(32762),
     NeutronAcceleratorUIV(32763),
-    NeutronAcceleratorUMV(32764),;
+    NeutronAcceleratorUMV(32764),
+    PolymerLayeringMachineController(32765),;
 
     public final int ID;
 

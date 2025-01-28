@@ -422,7 +422,7 @@ public class MaterialsKevlar {
         .addGearItems()
         .setRGB(240, 240, 120)
         .setColor(Dyes.dyeYellow)
-        .constructMaterial();
+        .constructMaterial(); // (C6H4)2(CO)2(NH)2
     public static Materials TerephthalicAcid = new MaterialBuilder(764, TextureSet.SET_FLUID, "Terephthalic Acid")
         .setName("TerephthalicAcid")
         .addCell()
