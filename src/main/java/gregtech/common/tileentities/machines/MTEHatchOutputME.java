@@ -155,10 +155,17 @@ public class MTEHatchOutputME extends MTEHatchOutput implements IPowerChannelSta
     }
 
     /**
-     * Check if the internal cache can still fit more fluids in it
+     * Check if the internal cache can still fit more fluids in it for a recipe check
      */
     public boolean canAcceptFluid() {
-        return getCachedAmount() < getCacheCapacity() || lastInputTick == tickCounter;
+        return getCachedAmount() < getCacheCapacity();
+    }
+
+    /**
+     * Check if there is space for fluids or if we can overfill.
+     */
+    public boolean canFillFluid() {
+        return canAcceptFluid() || lastInputTick == tickCounter;
     }
 
     /**
@@ -311,7 +318,6 @@ public class MTEHatchOutputME extends MTEHatchOutput implements IPowerChannelSta
 
     @Override
     public void addAdditionalTooltipInformation(ItemStack stack, List<String> tooltip) {
-
         if (stack.hasTagCompound() && stack.stackTagCompound.hasKey("baseCapacity")) {
             tooltip.add(
                 "Current cache capacity: " + EnumChatFormatting.YELLOW
@@ -453,10 +459,6 @@ public class MTEHatchOutputME extends MTEHatchOutput implements IPowerChannelSta
         }
         additionalConnection = aNBT.getBoolean("additionalConnection");
         baseCapacity = aNBT.getLong("baseCapacity");
-        // Set the base capacity of existing hatches to be infinite
-        if (baseCapacity == 0) {
-            baseCapacity = Long.MAX_VALUE;
-        }
         getProxy().readFromNBT(aNBT);
     }
 
