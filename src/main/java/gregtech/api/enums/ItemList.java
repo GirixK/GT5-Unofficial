@@ -2669,6 +2669,7 @@ public enum ItemList implements IItemContainer {
 
     PlanetaryGasSiphonController,
     PlanetaryGasSiphonCasing,
+    PolymerLayeringMachine,
 
     // semicolon after the comment to reduce merge conflicts
     ;
