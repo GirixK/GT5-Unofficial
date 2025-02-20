@@ -278,14 +278,6 @@ public class FluidSolidifierRecipes implements Runnable {
             .addTo(fluidSolidifierRecipes);
 
         GTValues.RA.stdBuilder()
-            .itemInputs(ItemList.Spinneret.get(0L))
-            .itemOutputs(ItemList.KevlarFiber.get(8L))
-            .fluidInputs(MaterialsKevlar.LiquidCrystalKevlar.getFluid(144L))
-            .duration(40 * SECONDS)
-            .eut(TierEU.RECIPE_EV)
-            .addTo(fluidSolidifierRecipes);
-
-        GTValues.RA.stdBuilder()
             .itemInputs(ItemList.Shape_Mold_Anvil.get(0L))
             .itemOutputs(getModItem(Railcraft.ID, "anvil", 1L, 0))
             .fluidInputs(Materials.Steel.getMolten(4464L))

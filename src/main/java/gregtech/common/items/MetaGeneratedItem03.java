@@ -951,8 +951,8 @@ public class MetaGeneratedItem03 extends MetaGeneratedItemX32 implements IItemFi
             .set(addItem(GalliumArsenideCrystal.ID, "Gallium Arsenide Crystal", "For making boules", o));
         ItemList.GalliumArsenideCrystalSmallPart
             .set(addItem(GalliumArsenideCrystalSmallPart.ID, "Small Gallium Arsenide Crystal", "For making boules", o));
-        ItemList.KevlarFiber.set(addItem(KevlarFiber.ID, "Kevlar Fiber", "For making Kevlar Plates", o));
-        ItemList.WovenKevlar.set(addItem(WovenKevlar.ID, "Woven Kevlar", "For making Kevlar Plates", o));
+        ItemList.KevlarFiber.set(addItem(KevlarFiber.ID, "Drawn Kevlar Fiber", "Still too dry", o));
+        ItemList.WovenKevlar.set(addItem(WovenKevlar.ID, "Woven Kevlar", "First usable Kevlar", o));
         ItemList.Spinneret.set(addItem(Spinneret.ID, "Spinneret", "For making Kevlar Fiber", o));
 
         ItemList.IndustrialApiary_Upgrade_Frame
