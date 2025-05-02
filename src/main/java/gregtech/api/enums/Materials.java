@@ -18,6 +18,7 @@ import java.util.stream.IntStream;
 
 import javax.annotation.Nonnull;
 
+import gregtech.api.util.CustomGlyphs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;

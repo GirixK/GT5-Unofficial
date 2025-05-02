@@ -1047,27 +1047,6 @@ public class ChemicalRecipes implements Runnable {
             .eut(30)
             .addTo(chemicalReactorRecipes);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // K + HNO3 = KNO3 + H (not real, but gameplay
 
         GTValues.RA.stdBuilder()
@@ -4255,7 +4234,6 @@ public class ChemicalRecipes implements Runnable {
             .duration(7 * SECONDS + 10 * TICKS)
             .eut(TierEU.RECIPE_HV)
             .addTo(multiblockChemicalReactorRecipes);
-
 
         // 2CH3COOH = CH3COCH3 + CO2 + H
 

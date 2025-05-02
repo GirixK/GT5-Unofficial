@@ -346,7 +346,7 @@ public class RecipeLoaderChemicalSkips {
                 .itemInputs(GTBees.combs.getStackForType(CombType.KEVLAR, 24), Materials.Carbon.getDust(64))
                 .fluidInputs(Materials.Nitrogen.getGas(1000 * 16), Materials.Hydrogen.getGas(1000 * 16))
                 .fluidOutputs(
-                    //MaterialsKevlar.PolyurethaneResin.getFluid(1000 * 32),
+                    // MaterialsKevlar.PolyurethaneResin.getFluid(1000 * 32),
                     MaterialsKevlar.LiquidCrystalKevlar.getFluid(144 * 32),
                     MaterialsKevlar.Kevlar.getMolten(144 * 64))
                 .duration(20 * SECONDS)

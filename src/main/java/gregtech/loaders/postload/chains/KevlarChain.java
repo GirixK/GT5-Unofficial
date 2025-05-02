@@ -1,7 +1,12 @@
 package gregtech.loaders.postload.chains;
 
-import bartworks.system.material.WerkstoffLoader;
+import static gregtech.api.recipe.RecipeMaps.fluidSolidifierRecipes;
+import static gregtech.api.recipe.RecipeMaps.multiblockChemicalReactorRecipes;
+import static gregtech.api.util.GTRecipeBuilder.SECONDS;
+import static gregtech.api.util.GTRecipeConstants.CHEMPLANT_CASING_TIER;
+import static gtPlusPlus.api.recipe.GTPPRecipeMaps.chemicalPlantRecipes;
 
+import bartworks.system.material.WerkstoffLoader;
 import gregtech.api.enums.GTValues;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -10,14 +15,8 @@ import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TierEU;
 import gregtech.api.util.GTOreDictUnificator;
 import gregtech.api.util.GTUtility;
-import gtPlusPlus.core.item.chemistry.GenericChem;
 import gtPlusPlus.core.util.minecraft.ItemUtils;
-
-import static gregtech.api.recipe.RecipeMaps.fluidSolidifierRecipes;
-import static gregtech.api.recipe.RecipeMaps.multiblockChemicalReactorRecipes;
-import static gregtech.api.util.GTRecipeBuilder.SECONDS;
-import static gregtech.api.util.GTRecipeConstants.CHEMPLANT_CASING_TIER;
-import static gtPlusPlus.api.recipe.GTPPRecipeMaps.chemicalPlantRecipes;
+import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 
 public class KevlarChain {
 
@@ -29,9 +28,7 @@ public class KevlarChain {
             .fluidInputs(
                 MaterialsKevlar.ParaPhenylenediamine.getFluid(1000),
                 MaterialsKevlar.TerephthaloylChloride.getFluid(1000))
-            .fluidOutputs(
-                MaterialsKevlar.LiquidCrystalKevlar.getFluid(1296),
-                Materials.HydrochloricAcid.getFluid(2000))
+            .fluidOutputs(MaterialsKevlar.LiquidCrystalKevlar.getFluid(1296), Materials.HydrochloricAcid.getFluid(2000))
             .duration(10 * SECONDS)
             .eut(TierEU.RECIPE_UV)
             .addTo(multiblockChemicalReactorRecipes);
@@ -39,14 +36,10 @@ public class KevlarChain {
         // Phenylenediamine
         GTValues.RA.stdBuilder()
             .itemInputs(
-                ItemUtils.getSimpleStack(GenericChem.mPinkCatalyst, 0),
+                GregtechItemList.PinkMetalCatalyst.get(0),
                 GTOreDictUnificator.get(OrePrefixes.dust, Materials.Iron, 1))
-            .fluidInputs(
-                Materials.Hydrogen.getGas(6000),
-                MaterialsKevlar.IVNitroaniline.getFluid(1000))
-            .fluidOutputs(
-                MaterialsKevlar.ParaPhenylenediamine.getFluid(1000),
-                Materials.Water.getFluid(2000))
+            .fluidInputs(Materials.Hydrogen.getGas(6000), MaterialsKevlar.IVNitroaniline.getFluid(1000))
+            .fluidOutputs(MaterialsKevlar.ParaPhenylenediamine.getFluid(1000), Materials.Water.getFluid(2000))
             .duration(5 * SECONDS)
             .eut(TierEU.RECIPE_LuV)
             .metadata(CHEMPLANT_CASING_TIER, 1)
@@ -55,9 +48,7 @@ public class KevlarChain {
         // Nitroaniline
         GTValues.RA.stdBuilder()
             .itemInputs(GTUtility.getIntegratedCircuit(1))
-            .fluidInputs(
-                Materials.Nitrochlorobenzene.getFluid(1000),
-                Materials.Ammonia.getGas(2000))
+            .fluidInputs(Materials.Nitrochlorobenzene.getFluid(1000), Materials.Ammonia.getGas(2000))
             .fluidOutputs(
                 MaterialsKevlar.IVNitroaniline.getFluid(1000),
                 WerkstoffLoader.AmmoniumChloride.getFluidOrGas(1000))
@@ -67,7 +58,7 @@ public class KevlarChain {
 
         // Terephthaloyl Chloride
         GTValues.RA.stdBuilder()
-            .itemInputs(ItemUtils.getSimpleStack(GenericChem.mRedCatalyst, 0))
+            .itemInputs(GregtechItemList.RedMetalCatalyst.get(0))
             .fluidInputs(
                 MaterialsKevlar.Hexachloroxylene.getFluid(1000),
                 MaterialsKevlar.TerephthalicAcid.getFluid(1000))
@@ -82,25 +73,17 @@ public class KevlarChain {
         // Hexachloroxylene
         GTValues.RA.stdBuilder()
             .itemInputs(GTUtility.getIntegratedCircuit(1))
-            .fluidInputs(
-                Materials.Chlorine.getGas(12000),
-                Materials.Dimethylbenzene.getFluid(1000))
-            .fluidOutputs(
-                MaterialsKevlar.Hexachloroxylene.getFluid(1000),
-                Materials.HydrochloricAcid.getFluid(6000))
+            .fluidInputs(Materials.Chlorine.getGas(12000), Materials.Dimethylbenzene.getFluid(1000))
+            .fluidOutputs(MaterialsKevlar.Hexachloroxylene.getFluid(1000), Materials.HydrochloricAcid.getFluid(6000))
             .duration(5 * SECONDS)
             .eut(TierEU.RECIPE_LV)
             .addTo(multiblockChemicalReactorRecipes);
 
         // Terephthalic Acid
         GTValues.RA.stdBuilder()
-            .itemInputs(ItemUtils.getSimpleStack(GenericChem.mBlueCatalyst, 0))
-            .fluidInputs(
-                Materials.Dimethylbenzene.getFluid(1000),
-                Materials.Oxygen.getGas(6000))
-            .fluidOutputs(
-                MaterialsKevlar.TerephthalicAcid.getFluid(1000),
-                Materials.Water.getFluid(2000))
+            .itemInputs(GregtechItemList.BlueMetalCatalyst.get(0))
+            .fluidInputs(Materials.Dimethylbenzene.getFluid(1000), Materials.Oxygen.getGas(6000))
+            .fluidOutputs(MaterialsKevlar.TerephthalicAcid.getFluid(1000), Materials.Water.getFluid(2000))
             .duration(5 * SECONDS)
             .eut(TierEU.RECIPE_LV)
             .metadata(CHEMPLANT_CASING_TIER, 1)

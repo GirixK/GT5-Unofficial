@@ -55,24 +55,22 @@ public class MaterialsKevlar {
                 new TCAspects.TC_AspectStack(TCAspects.TERRA, 1),
                 new TCAspects.TC_AspectStack(TCAspects.VITREUS, 1)))
         .constructMaterial(); // C6H6N2O2
-    public static Materials ParaPhenylenediamine = new MaterialBuilder(
-        779,
-        TextureSet.SET_POWDER,
-        "Phenylenediamine").setName("pPhenylenediamine")
-            .addCell()
+    public static Materials ParaPhenylenediamine = new MaterialBuilder(779, TextureSet.SET_POWDER, "Phenylenediamine")
+        .setName("pPhenylenediamine")
+        .addCell()
         .addFluid()
-            .setRGB(251, 236, 93)
-            .setColor(Dyes.dyeYellow)
-            .setMeltingPoint(293)
-            .setMaterialList(
-                new MaterialStack(Materials.Carbon, 6),
-                new MaterialStack(Materials.Hydrogen, 8),
-                new MaterialStack(Materials.Nitrogen, 2))
-            .setAspects(
-                Arrays.asList(
-                    new TCAspects.TC_AspectStack(TCAspects.TERRA, 1),
-                    new TCAspects.TC_AspectStack(TCAspects.VITREUS, 1)))
-            .constructMaterial(); // C6H6N2
+        .setRGB(251, 236, 93)
+        .setColor(Dyes.dyeYellow)
+        .setMeltingPoint(293)
+        .setMaterialList(
+            new MaterialStack(Materials.Carbon, 6),
+            new MaterialStack(Materials.Hydrogen, 8),
+            new MaterialStack(Materials.Nitrogen, 2))
+        .setAspects(
+            Arrays.asList(
+                new TCAspects.TC_AspectStack(TCAspects.TERRA, 1),
+                new TCAspects.TC_AspectStack(TCAspects.VITREUS, 1)))
+        .constructMaterial(); // C6H6N2
 
     public static Materials CalciumCarbide = new MaterialBuilder(775, TextureSet.SET_DULL, "Calcium Carbide")
         .setName("CacliumCarbide")
@@ -91,9 +89,6 @@ public class MaterialsKevlar {
             .setRGB(240, 240, 120)
             .setColor(Dyes.dyeYellow)
             .constructMaterial(); // [-CO-C6H4-CO-NH-C6H4-NH-]n
-
-
-
 
     public static Materials Kevlar = new MaterialBuilder(765, TextureSet.SET_DULL, "Kevlar").setName("Kevlar")
         .addDustItems()
@@ -134,8 +129,6 @@ public class MaterialsKevlar {
             new MaterialStack(Materials.Chlorine, 6),
             new MaterialStack(Materials.Hydrogen, 4))
         .constructMaterial();
-
-
 
     /**
      * This method is called by Materials. It can be safely called multiple times.
